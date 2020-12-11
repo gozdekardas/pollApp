@@ -10,7 +10,8 @@
 	</parent>
 	<groupId>com.pollapp</groupId>
 	<artifactId>pollApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<version>2.5</version>
 	<name>pollApp</name>
 	<description>Demo project</description>
 
@@ -31,11 +32,6 @@
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

@@ -1,8 +1,8 @@
-package com.pollapp.pollApp.user.service;
+package com.pollapp.service;
 
-import com.pollapp.pollApp.responses.model.Response;
-import com.pollapp.pollApp.user.model.User;
-import com.pollapp.pollApp.user.repository.UserRepository;
+import com.pollapp.model.Question;
+import com.pollapp.model.User;
+import com.pollapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -35,7 +35,13 @@ public class UserService {
 
     }
 
-    public List<User> findByUserName (String userName) {
+    public User findByUserName(String userName) {
         return repo.findByUserName(userName);
+    }
+
+    public String getUserType (String userName) {
+        User user = repo.findByUserName(userName);
+        String userType = user.getUserType();
+        return userType;
     }
 }

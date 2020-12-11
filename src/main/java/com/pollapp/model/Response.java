@@ -1,6 +1,6 @@
-package com.pollapp.pollApp.responses.model;
+package com.pollapp.model;
 
-import com.pollapp.pollApp.question.model.Question;
+import com.pollapp.model.Question;
 
 import javax.persistence.*;
 
@@ -18,8 +18,9 @@ public class Response {
     private String enabled;
     private int answered;
 
+
     @ManyToOne
-    @JoinColumn(name = "questionId" , insertable = false, updatable = false)
+    @JoinColumn(name = "questionId", insertable = false, updatable = false)
     private Question question;
 
     public int getResponseId() {
@@ -69,8 +70,6 @@ public class Response {
     public void setAnswered(int answered) {
         this.answered = answered;
     }
-
-
 
 
 }

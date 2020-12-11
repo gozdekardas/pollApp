@@ -1,4 +1,4 @@
-package com.pollapp.pollApp.user.model;
+package com.pollapp.model;
 
 import javax.persistence.*;
 

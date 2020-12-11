@@ -1,6 +1,6 @@
-package com.pollapp.pollApp.question.repository;
+package com.pollapp.repository;
 
-import com.pollapp.pollApp.question.model.Question;
+import com.pollapp.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

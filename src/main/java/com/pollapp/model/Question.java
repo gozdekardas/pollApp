@@ -1,6 +1,4 @@
-package com.pollapp.pollApp.question.model;
-
-import com.pollapp.pollApp.responses.model.Response;
+package com.pollapp.model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,7 +14,8 @@ public class Question {
     private String questionText;
     private String createdBy;
     private String enabled;
-    @OneToMany(mappedBy = "question")
+
+    @OneToMany(mappedBy = "question",cascade = {CascadeType.ALL})
     private List<Response> responses;
 
     public List<Response> getResponses() {
