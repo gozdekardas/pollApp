@@ -6,10 +6,7 @@ import com.pollapp.model.Response;
 import com.pollapp.service.ResponseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +15,6 @@ public class QuestionController {
 
     @Autowired
     QuestionService questionService;
-    ResponseService responseService;
 
     @GetMapping("/questions")
     List<Question> all() {
@@ -27,7 +23,7 @@ public class QuestionController {
     }
 
     @PostMapping("/addQuestion")
-    public ResponseEntity<Question> add(@RequestBody Question question) {
+    public ResponseEntity<String> add(@RequestBody Question question) {
 
         int questionId = questionService.saveQuestion(question);
 
@@ -43,9 +39,36 @@ public class QuestionController {
         }
         ;
         questionId = questionService.saveQuestion(question);
-        return ResponseEntity.ok(
-                question
-        );
+
+        return ResponseEntity.ok(questionId + " id ile yeni soru eklendi.");
+    }
+
+    @PutMapping("/enableQuestion/{questionId}")
+    public ResponseEntity<String> enableQuestion(@PathVariable int questionId) {
+        String response = "";
+        try {
+            Question question = questionService.findByQuestionId(questionId);
+            question.setEnabled("Y");
+            questionService.saveQuestion(question);
+            response = "ok";
+        } catch (Exception e) {
+            response = "not found";
+        }
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/disableQuestion/{questionId}")
+    public ResponseEntity<String> disableQuestion(@PathVariable int questionId) {
+        String response = "";
+        try {
+            Question question = questionService.findByQuestionId(questionId);
+            question.setEnabled("N");
+            questionService.saveQuestion(question);
+            response = "ok";
+        } catch (Exception e) {
+            response = "not found";
+        }
+        return ResponseEntity.ok(response);
     }
 
 }

@@ -42,4 +42,7 @@ public class Question {
         return enabled;
     }
 
+    public void setEnabled(String enabled) {
+        this.enabled = enabled;
+    }
 }

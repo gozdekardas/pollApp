@@ -24,8 +24,13 @@ public class ResponseController {
 
     @PostMapping("/response")
     public ResponseEntity<String> add(@RequestBody Response response) {
-        responseService.saveResponse(response);
-        return ResponseEntity.ok("ok");
+        String resp = "";
+        try {
+            responseService.saveResponse(response);
+        } catch (Exception e) {
+            resp = "not found";
+        }
+        return ResponseEntity.ok(resp);
     }
 
     @GetMapping("/responses/{questionId}")
@@ -33,12 +38,18 @@ public class ResponseController {
         return responseService.findByQuestionId(questionId);
     }
 
-    @PostMapping("/voteResponse/{responseId}")
-    public ResponseEntity<String> add(@PathVariable  int responseId) {
-        Response response = responseService.findByResponseId(responseId);
-        response.setAnswered(response.getAnswered()+1);
-        responseService.saveResponse(response);
-        return ResponseEntity.ok("ok");
+    @PutMapping("/voteResponse/{responseId}")
+    public ResponseEntity<String> voteResponse(@PathVariable int responseId) {
+        String resp = "";
+        try {
+            Response response = responseService.findByResponseId(responseId);
+            response.setAnswered(response.getAnswered() + 1);
+            responseService.saveResponse(response);
+            resp = "ok";
+        } catch (Exception e) {
+            resp = "not found";
+        }
+        return ResponseEntity.ok(resp);
     }
 
 }

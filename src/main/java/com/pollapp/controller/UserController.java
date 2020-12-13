@@ -21,13 +21,13 @@ public class UserController {
         return userService.listAllUsers();
     }
 
-    @GetMapping("/getUserType/{userName}")
-    public ResponseEntity<String> getUserType(@PathVariable String userName) {
+    @GetMapping("/getUserType/{userName}/{password}")
+    public ResponseEntity<String> getUserType(@PathVariable String userName, @PathVariable String password) {
         String userType;
         try {
-            userType = userService.getUserType(userName);
+            userType = userService.getUserType(userName,password);
         } catch (Exception e) {
-            userType = "null";
+            userType = "notfound";
         }
         return ResponseEntity.ok(userType);
     }

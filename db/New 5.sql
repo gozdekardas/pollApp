@@ -30,3 +30,6 @@ edit xx_questions
 edit xx_responses
 
 select xx_questions_seq.nextval from dual
+
+
+edit xx_users

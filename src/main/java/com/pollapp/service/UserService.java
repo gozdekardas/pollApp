@@ -39,9 +39,16 @@ public class UserService {
         return repo.findByUserName(userName);
     }
 
-    public String getUserType (String userName) {
+    public String getUserType (String userName, String password) {
         User user = repo.findByUserName(userName);
-        String userType = user.getUserType();
+        String passWord = user.getPassword();
+        System.out.println("pass: "+password+ "-"+passWord);
+        String userType = "wrongPass";
+        if(passWord.equals(password))
+        {
+            userType = user.getUserType();
+        }
+
         return userType;
     }
 }

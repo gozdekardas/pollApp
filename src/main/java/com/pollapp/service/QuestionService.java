@@ -1,4 +1,5 @@
 package com.pollapp.service;
+import com.pollapp.model.Response;
 import com.pollapp.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,11 @@ public class QuestionService {
     public void deleteQuestion(Integer questionId) {
         repo.deleteById(questionId);
     }
+
+    public Question findByQuestionId (int questionId) {
+        return repo.findByQuestionId(questionId);
+    }
+
 
 
 
