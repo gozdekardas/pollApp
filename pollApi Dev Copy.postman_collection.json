@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "1f8d7e6b-3c64-4545-a620-7447ceff4732",
+		"name": "pollApi Dev Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all questions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/questions",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add a question with responses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \r\n        \"questionText\": \"Bugün günlerden ne?\",\r\n        \"createdBy\": \"Gozde\",\r\n        \"enabled\": \"Y\",\r\n        \"responses\": [\r\n            {\r\n                \"responseText\": \"Salı\",\r\n                \"createdBy\": \"Gozde\",\r\n                \"enabled\": \"Y\",\r\n                \"answered\": 0\r\n            },{\r\n                \"responseText\": \"Pazar\",\r\n                \"createdBy\": \"Gozde\",\r\n                \"enabled\": \"Y\",\r\n                \"answered\": 0\r\n            },{\r\n                \"responseText\": \"Cuma\",\r\n                \"createdBy\": \"Gozde\",\r\n                \"enabled\": \"Y\",\r\n                \"answered\": 0\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/addQuestion",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"addQuestion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get responses of a question with questionId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/responses/61",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"responses",
+						"61"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vote response with responseId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/voteResponse/43",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"voteResponse",
+						"43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/users",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get usertype with username-password",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/getUserType/gozde/welcome",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"getUserType",
+						"gozde",
+						"welcome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "enable question with questionId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/enableQuestion/45",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"enableQuestion",
+						"45"
+					]
+				},
+				"description": "to enable a question with questionID"
+			},
+			"response": []
+		},
+		{
+			"name": "disable question with questionId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://10.201.237.65:7071/pollApp/disableQuestion/45",
+					"protocol": "http",
+					"host": [
+						"10",
+						"201",
+						"237",
+						"65"
+					],
+					"port": "7071",
+					"path": [
+						"pollApp",
+						"disableQuestion",
+						"45"
+					]
+				},
+				"description": "to disable a question with questionId"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
